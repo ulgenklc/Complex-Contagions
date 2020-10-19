@@ -3,17 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Excitations's documentation!
+Brain network excitations
 =======================================
+BNE is a python package to run several different excitation models on custom networks to understand and analyze the dynamics of these systems. 
+
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
    
-   Introduction
-   ------------
-   * Excitations is a python package where we explore the network topology interactions with an avalanche of signals
-
 
 
 Indices and tables
