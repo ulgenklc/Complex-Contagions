@@ -1,0 +1,8 @@
+numpy
+scipy
+math
+matplotlib.pyplot
+networkx
+random
+gudhi
+
