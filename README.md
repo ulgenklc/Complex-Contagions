@@ -1,2 +1,2 @@
-# Dane_Sarah_Ulgen
+# Complex_Contagions
 preliminary experiments on network-topology interactions
