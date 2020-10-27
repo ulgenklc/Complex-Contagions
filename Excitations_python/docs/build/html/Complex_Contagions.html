@@ -1,0 +1,582 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The geometric_network class &mdash; Complex Neuronal Contagions version 1.0, 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Complex Neuronal Contagions version 1.0, 2020 documentation" href="index.html"/>
+        <link rel="prev" title="Quick Tutorial" href="Quick Tutorial.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Complex Neuronal Contagions
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quick Tutorial.html">Quick Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">geometric_network</span></code> class</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Complex Neuronal Contagions</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>The <code class="docutils literal notranslate"><span class="pre">geometric_network</span></code> class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Complex_Contagions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="Quick Tutorial.html" class="btn btn-neutral" title="Quick Tutorial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-geometric-network-class">
+<h1>The <code class="docutils literal notranslate"><span class="pre">geometric_network</span></code> class<a class="headerlink" href="#the-geometric-network-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="Complex_Contagions.geometric_network">
+<em class="property">class </em><code class="sig-prename descclassname">Complex_Contagions.</code><code class="sig-name descname">geometric_network</code><span class="sig-paren">(</span><em class="sig-param">network_type</em>, <em class="sig-param">size</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Geometric Network Object to run complex contagions on.</p>
+<dl class="attribute">
+<dt id="Complex_Contagions.geometric_network.N">
+<code class="sig-name descname">N</code><a class="headerlink" href="#Complex_Contagions.geometric_network.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>size, number of nodes in the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Complex_Contagions.geometric_network.M">
+<code class="sig-name descname">M</code><a class="headerlink" href="#Complex_Contagions.geometric_network.M" title="Permalink to this definition">¶</a></dt>
+<dd><p>total number of edges in the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Complex_Contagions.geometric_network.graph">
+<code class="sig-name descname">graph</code><a class="headerlink" href="#Complex_Contagions.geometric_network.graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Networkx graph corresponding to the Geometric object. Having this attribute, you can use all the networkx library.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>a Networkx object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Complex_Contagions.geometric_network.pos">
+<code class="sig-name descname">pos</code><a class="headerlink" href="#Complex_Contagions.geometric_network.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of nodes and their spatial location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Complex_Contagions.geometric_network.A">
+<code class="sig-name descname">A</code><a class="headerlink" href="#Complex_Contagions.geometric_network.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjacency matrix of the graph. Use .todense() or .toarray() to manipulate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>A Scipy sparse matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Complex_Contagions.geometric_network.text">
+<code class="sig-name descname">text</code><a class="headerlink" href="#Complex_Contagions.geometric_network.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>a simple description of the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>network_type</strong> (<em>str</em>) – type of the network to be created. It can be ‘2D_lattice’ or ‘ring_lattice’</p></li>
+<li><p><strong>**kwargs</strong> – <dl class="simple">
+<dt>tiling: int</dt><dd><p>should be provided if the network type is 2D_lattice.
+tiling of the 2d lattice. It can be 3,4,6 for now. this is the number of neighbors to be
+connected.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>**kwargs</strong> – <dl class="simple">
+<dt>periodic: bool</dt><dd><p>should be provided if the network type is 2D_lattice. if True, edges of the network
+are going to be glued together.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>**kwargs</strong> – <dl class="simple">
+<dt>banded: bool</dt><dd><p>should be provided if the network type is ring_lattice. If True, the closest band_length many
+neigbors from right and left is going to be connected to every node, creating a banding.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>**kwargs</strong> – <dl class="simple">
+<dt>band_length: int</dt><dd><p>should be provided if the network type is ring_lattice. geometric degre divided by 2.
+Note that geometric degree must be an even number.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – size of the network to be initated. If 2D_lattice, there will be size**2 many total nodes.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.add_noise_to_geometric">
+<code class="sig-name descname">add_noise_to_geometric</code><span class="sig-paren">(</span><em class="sig-param">noise_type</em>, <em class="sig-param">d2</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.add_noise_to_geometric" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method adds non-geometric edges to the network that are long range. Depending on the ‘noise_type’
+the way we add these long range edges differ. If noise_type = ER_like, then there will be d2 many
+non geometric edges ON AVARAGE for every node. When the noise_type = k_regular, every node will
+have exactly d2 many long range edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>noise_type</strong> (<em>str</em>) – ER_like or k_regular</p></li>
+<li><p><strong>d2</strong> (<em>int</em>) – degree to assign non-geometric edges to every node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None. Updates the geometric_network.A</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the geometric_network.N * d2 is an odd number.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.average_over_trials">
+<code class="sig-name descname">average_over_trials</code><span class="sig-paren">(</span><em class="sig-param">matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.average_over_trials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper funtion to take the averages over trials of the given matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>array k x Trials</em>) – Matrix to take the average over trials. Matrix have to be k x Trials. This can be
+the size of the contagion or first activation times depending on what you need.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mean_matrix</strong> – Mean matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array k x 1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.compute_persistence">
+<code class="sig-name descname">compute_persistence</code><span class="sig-paren">(</span><em class="sig-param">distances</em>, <em class="sig-param">spy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.compute_persistence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper to compute persistent homology using the distance matrix by building a Rips filtration up to
+dimension 2(topological features to be observed are going to be 1 dimensional at max).
+First normalizes the distances before the computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distances</strong> (<em>n x n array</em>) – distance matrix. First output of the make_distance_matrix.</p></li>
+<li><p><strong>spy</strong> (<em>bool</em><em>, </em><em>optional</em>) – Take a peak at the persistence diagram</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>diag</strong> – The birth and death times of the topological features in all dimensions.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">n_size=15</em>, <em class="sig-param">labels=True</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to pass parameters into nx.draw().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_size</strong> (<em>int</em>) – node sizes.</p></li>
+<li><p><strong>labels</strong> (<em>bool</em>) – node labels.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>nx.draw(self.graph)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.display_comm_sizes">
+<code class="sig-name descname">display_comm_sizes</code><span class="sig-paren">(</span><em class="sig-param">Q</em>, <em class="sig-param">labels</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.display_comm_sizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper to visualize the size of the active nodes during the contagion. Shades are indicating the max
+and min values of the spread starting from different nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Q</strong> (<em>list</em><em>, </em><em>[</em><em>n x T+1 array</em><em>]</em>) – Output of the make_distance_matrix appended in a list</p></li>
+<li><p><strong>labels</strong> (<em>figure labels corresponding to every list element</em><em>, </em><em>threshold</em><em>, </em><em>network type</em><em>, </em><em>C etc...</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.excitation">
+<code class="sig-name descname">excitation</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">C</em>, <em class="sig-param">seed</em>, <em class="sig-param">threshold</em>, <em class="sig-param">refractory=False</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">spy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.excitation" title="Permalink to this definition">¶</a></dt>
+<dd><p>THE CORE FUNCTION OF THE NEURONAL CONTAGION MODEL.
+In this model, a neuron fires if the ratio of it’s excited neighbors to the total number of neighbors
+is greater than the threshold. Let’s call the difference between this ratio and the threshold = F
+so that if F is positive, neuron is going to fire and it doesn’t fire when it’s negative. We add some
+stocasticity to the model by defining the sigmoid function so that the probability that the
+neuron is going to fire is not a step function, but a sigmoid function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>int</em>) – Number of time steps contagions is going to be iterated.</p></li>
+<li><p><strong>C</strong> (<em>int</em>) – A positive constant for the sigmoid function, if C is too large(&gt;100),
+jump from 0 to 1 is gonna be too quick i.e. model is going to be deterministic.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – node id to start the contagion, in the first time step, we infect
+the neighbors of the seed with probablity 1 then enter the while loop below</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – threshold to compare for a neuron’s neighbor input. threshold must be in (0,1).</p></li>
+<li><p><strong>refractory</strong> (<em>bool</em>) – if TRUE, sets the refractory period of 1 time step i.e. neuron cannot fire for 1 time step
+right after it fires. if FALSE, neuron stays active once its activated.</p></li>
+<li><p><strong>spy</strong> (<em>ax</em><em>,</em>) – if spy is TRUE, there have to be an axis provided to plot the contagion spread.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>activation_times</strong> (<em>array</em>) – An array of n x 1 keeping track of the first time step the corresponding
+node gets activated.</p></li>
+<li><p><strong>size_of_contagion</strong> (<em>array</em>) – An array of (T+1) x 1 keeping track of the number of active nodes at a
+given time(at t = 0, all neighbors of the seed is active)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.make_distance_matrix">
+<code class="sig-name descname">make_distance_matrix</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">C</em>, <em class="sig-param">threshold</em>, <em class="sig-param">Trials</em>, <em class="sig-param">refractory</em>, <em class="sig-param">spy_distance=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.make_distance_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>A shortcut to run all of the above functions in one function. This creates a distance matrix by running the
+contagion on starting from every node and encoding the first activation times of each node. The (i,j) entry
+corresponds to the average time(over the trials) that a contagion reaches node j starting from node i.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>int</em>) – Number of time steps contagions is going to be iterated.</p></li>
+<li><p><strong>C</strong> (<em>int</em>) – A positive constant for the sigmoid function, if C is too large(&gt;100),
+jump from 0 to 1 is gonna be too quick i.e. model is going to be deterministic.</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – threshold to compare for a neuron’s neighbor input. threshold must be in (0,1).</p></li>
+<li><p><strong>Trials</strong> (<em>int</em>) – Number of trials to run the contagion on the same network.</p></li>
+<li><p><strong>refractory</strong> (<em>bool</em>) – if TRUE, sets the refractory period of 1 time step i.e. neuron cannot fire for 1 time step
+right after it fires. if FALSE, neuron stays active once its activated.</p></li>
+<li><p><strong>spy_distance</strong> (<em>bool</em>) – Check True if you want to take a peak at the distance matrix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>D</strong> (<em>n x n array</em>) – Distance matrix</p></li>
+<li><p><strong>Q</strong> (<em>n x T+1 array</em>) – Array carrying the size of the contagion at every time step.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.one_d_Delta">
+<code class="sig-name descname">one_d_Delta</code><span class="sig-paren">(</span><em class="sig-param">persistence</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.one_d_Delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper to compute the specific topological features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>persistences</strong> (<em>list</em>) – a list of birth and death times of the topological features or the output of the compute_persistence.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Delta_min</strong> (<em>float</em>) – The difference between the life times of the longest and the second longest 1-cycle.</p></li>
+<li><p><strong>Delta_max</strong> (<em>float</em>) – The difference between the life times of the longest and the shorthes 1-cycle.</p></li>
+<li><p><strong>Delta_avg</strong> (<em>float</em>) – The average lifetime of all the 1-cycles.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.run_excitation">
+<code class="sig-name descname">run_excitation</code><span class="sig-paren">(</span><em class="sig-param">Trials</em>, <em class="sig-param">T</em>, <em class="sig-param">C</em>, <em class="sig-param">seed</em>, <em class="sig-param">threshold</em>, <em class="sig-param">refractory</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.run_excitation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to run the excitation over several trials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Trials</strong> (<em>int</em>) – Number of trials to run the contagion on the same network.</p></li>
+<li><p><strong>T</strong> (<em>int</em>) – Number of time steps contagions is going to be iterated.</p></li>
+<li><p><strong>C</strong> (<em>int</em>) – A positive constant for the sigmoid function, if C is too large(&gt;100),
+jump from 0 to 1 is gonna be too quick i.e. model is going to be deterministic.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – node id to start the contagion, in the first time step, we infect
+the neighbors of the seed with probablity 1 then enter the while loop below</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – threshold to compare for a neuron’s neighbor input. threshold must be in (0,1).</p></li>
+<li><p><strong>refractory</strong> (<em>bool</em>) – if TRUE, sets the refractory period of 1 time step i.e. neuron cannot fire for 1 time step
+right after it fires. if FALSE, neuron stays active once its activated.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axis</em><em>, </em><em>optional</em>) – if not provided, contagion will not be shown.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>activation_times</strong> (<em>array</em>) – An array of n x Trials keeping track of the first time step the corresponding
+node gets activated for each trial.</p></li>
+<li><p><strong>size_of_contagion</strong> (<em>array</em>) – An array of (T+1) x Trials keeping track of the number of active nodes at a
+given time(at t = 0, all neighbors of the seed is active) for each trial.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Complex_Contagions.geometric_network.spy_first_activation">
+<code class="sig-name descname">spy_first_activation</code><span class="sig-paren">(</span><em class="sig-param">first_activation_times</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.spy_first_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to visualize the first activation times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>first_activation_times</strong> (<em>array of size n x Trials</em>) – First output of the run_excitation showing the first time step that the contagion
+reaches to a given node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Quick Tutorial.html" class="btn btn-neutral" title="Quick Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Bengier Ülgen Kılıç.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'version 1.0, 2020',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>
