@@ -1,6 +1,5 @@
 numpy
 scipy
 networkx
-random
 gudhi
 sphinx_glpi_theme
