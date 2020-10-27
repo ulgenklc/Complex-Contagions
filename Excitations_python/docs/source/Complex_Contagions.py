@@ -4,13 +4,13 @@
 # In[ ]:
 
 
-import numpy as np
-from scipy import sparse
-from math import sqrt
-import matplotlib.pyplot as plt
-import networkx as nx
-import random
-import gudhi
+#import numpy as np
+#from scipy import sparse
+#from math import sqrt
+#import matplotlib.pyplot as plt
+#import networkx as nx
+#import random
+#import gudhi
 
 
 # In[ ]:
