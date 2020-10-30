@@ -9,6 +9,7 @@ from scipy import sparse
 from math import sqrt
 import matplotlib.pyplot as plt
 import networkx as nx
+from sklearn.metrics.pairwise import euclidean_distances
 import random
 import gudhi
 
@@ -18,16 +19,17 @@ import gudhi
 
 class geometric_network():
     """
-    Geometric Network Object to run complex contagions on.
+    Geometric Network object to run complex contagions on.
         
     Attributes
     ----------
     geometric_network.N: int
-        size, number of nodes in the network.
+        Size, number of nodes in the network.
     geometric_network.M: int
-        total number of edges in the network.
+        Total number of edges in the network.
     geometric_network.graph: a Networkx object
-        Networkx graph corresponding to the Geometric object. Having this attribute, you can use all the networkx library.
+        Networkx graph corresponding to the geometric_network object. You can use all the 
+        networkx library with this attribute.
     geometric_network.pos: dict
         A dictionary of nodes and their spatial location.
     geometric_network.A: A Scipy sparse matrix
@@ -38,26 +40,26 @@ class geometric_network():
     Parameters
     -----------
     network_type: str
-        type of the network to be created. It can be '2D_lattice' or 'ring_lattice'
+        Type of the network to be created. It can be ``2D_lattice`` or 'ring_lattice``.
+    size: int
+        Size of the network to be initated. If 2D_lattice, there will be size**2 many total nodes.
     **kwargs: 
         tiling: int
-            should be provided if the network type is 2D_lattice.
-            tiling of the 2d lattice. It can be 3,4,6 for now. this is the number of neighbors to be 
+            Should be provided if the network type is ``2D_lattice``.
+            Tiling of the 2d lattice. It can be 3,4,6 for now. This is the number of neighbors to be 
             connected.
     **kwargs:
         periodic: bool
-            should be provided if the network type is 2D_lattice. if True, edges of the network 
-            are going to be glued together.
+            Should be provided if the network type is ``2D_lattice``. if True, edges of the planar lattice 
+            are going to be glued together. See ``networkx.grid_2d_graph``.
     **kwargs:
         banded: bool
-            should be provided if the network type is ring_lattice. If True, the closest band_length many 
+            Should be provided if the network type is ``ring_lattice``. If True, the closest ``band_length`` many 
             neigbors from right and left is going to be connected to every node, creating a banding.
     **kwargs:
         band_length: int
-            should be provided if the network type is ring_lattice. geometric degre divided by 2.
+            Sould be provided if the network type is ``ring_lattice``. Geometric degree divided by 2.
             Note that geometric degree must be an even number.
-    size: int
-        size of the network to be initated. If 2D_lattice, there will be size**2 many total nodes.
     
     """
     def __init__(self, network_type, size, **kwargs):
@@ -118,7 +120,7 @@ class geometric_network():
               
     def display(self, n_size = 15, labels = True):
         """
-        Method to pass parameters into nx.draw().
+        Method to pass parameters into ``nx.draw()``.
         
         Parameters
         -----------
@@ -144,8 +146,8 @@ class geometric_network():
     def add_noise_to_geometric(self, noise_type, d2):
         """
         This method adds non-geometric edges to the network that are long range. Depending on the 'noise_type'
-        the way we add these long range edges differ. If noise_type = ER_like, then there will be d2 many
-        non geometric edges ON AVARAGE for every node. When the noise_type = k_regular, every node will 
+        the way we add these long range edges differ. If noise_type = ``ER_like``, then there will be d2 many
+        non geometric edges ON AVERAGE for every node. When the noise_type = ``k_regular``, every node will 
         have exactly d2 many long range edges.
         
         Parameters
@@ -250,6 +252,7 @@ class geometric_network():
     def excitation(self, T, C, seed, threshold, refractory = False, ax = None, spy = False):
         """
         THE CORE FUNCTION OF THE NEURONAL CONTAGION MODEL. 
+        
         In this model, a neuron fires if the ratio of it's excited neighbors to the total number of neighbors
         is greater than the threshold. Let's call the difference between this ratio and the threshold = F 
         so that if F is positive, neuron is going to fire and it doesn't fire when it's negative. We add some 
@@ -340,8 +343,7 @@ class geometric_network():
             A positive constant for the sigmoid function, if C is too large(>100),
             jump from 0 to 1 is gonna be too quick i.e. model is going to be deterministic.
         seed: int 
-            node id to start the contagion, in the first time step, we infect
-            the neighbors of the seed with probablity 1 then enter the while loop below
+            node id to start the contagion, in the first time step.
         threshold: float
             threshold to compare for a neuron's neighbor input. threshold must be in (0,1).
         refractory: bool
@@ -408,7 +410,7 @@ class geometric_network():
         ----------
         first_activation_times: array of size n x Trials
             First output of the run_excitation showing the first time step that the contagion 
-            reaches to a given node
+            reaches to a given node.
         
         """
         
@@ -446,9 +448,11 @@ class geometric_network():
     
     def make_distance_matrix(self, T, C, threshold, Trials, refractory, spy_distance = False):
         """
-        A shortcut to run all of the above functions in one function. This creates a distance matrix by running the
-        contagion on starting from every node and encoding the first activation times of each node. The (i,j) entry
-        corresponds to the average time(over the trials) that a contagion reaches node j starting from node i.
+        A shortcut to run all of the above functions in one function. This creates an activation matrix by running 
+        the contagion on starting from every node and encoding the first activation times of each node. Then,
+        finding the euclidean distances between the columns of this matrix, creating a distance matrix so that
+        the (i,j) entry corresponds to the average time(over the trials) that a contagion reaches node j starting 
+        from node i.
         
         Parameters
         ----------
@@ -483,9 +487,11 @@ class geometric_network():
             fat, qs = self.run_excitation(Trials, T, C, i, threshold, refractory)
             D[i], Q[i] = self.average_over_trials(fat), self.average_over_trials(qs)
         
+        D1 = euclidean_distances(D.T)
+        
         if spy_distance: 
             fig,ax = plt.subplots(1,1, figsize = (15*int(n/20),10*int(n/20)))
-            pos = ax.imshow(D, 
+            pos = ax.imshow(D1, 
                             origin = 'lower', 
                             interpolation = 'nearest', 
                             aspect = 'auto', 
@@ -498,7 +504,8 @@ class geometric_network():
             ax.set_yticks([i*5 for i in range(int(n/5))])
 
             fig.colorbar(pos, ax = ax)
-        return(D,Q)
+        
+        return(D1, Q)
     
     def compute_persistence(self, distances, spy = False): 
         """
@@ -531,7 +538,7 @@ class geometric_network():
         Parameters
         ----------
         persistences: list
-             a list of birth and death times of the topological features or the output of the compute_persistence.
+             A list of birth and death times of the topological features or the output of the compute_persistence.
         Returns
         -------
         Delta_min: float
@@ -542,14 +549,18 @@ class geometric_network():
             The average lifetime of all the 1-cycles.
         """
         oned_holes = [(0,0)]
+        
         for i in range(len(persistence)):
             if persistence[i][0] == 1:
                 oned_holes.append(persistence[i][1])
+                
         oned_holes = np.array(oned_holes)
         persistence_life_times = oned_holes[:,1]-oned_holes[:,0]
+        
         Delta_min = np.sort(persistence_life_times)[-1]-np.sort(persistence_life_times)[-2]
         Delta_max = np.sort(persistence_life_times)[-1]-np.sort(persistence_life_times)[1]
         Delta_avg = np.mean(persistence_life_times[1:])
+        
         return(Delta_min, Delta_max, Delta_avg)
     
     def display_comm_sizes(self, Q, labels):
@@ -564,22 +575,35 @@ class geometric_network():
         labels: figure labels corresponding to every list element, threshold, network type, C etc...
 
         """
-        fig,ax = plt.subplots(1,1, figsize =(20,10))
+        argmaxs = []
+    
         for i in range(len(Q)):
             Q_mean = np.mean(Q[i], axis = 0)
-            ax.plot(Q_mean[:int(np.max(np.nonzero(Q)[2])+1)], 
+            argmaxs.append(np.argmax(Q_mean))
+    
+        fig,ax = plt.subplots(1,1, figsize =(20,10))
+    
+        for i in range(len(Q)):  
+            Q_mean = np.mean(Q[i], axis = 0)
+            ax.plot(Q_mean[:int(np.max(argmaxs)+10)], 
                     label = '%s'%labels[i], marker = 'v')
         
-            X = np.linspace(0,int(np.max(np.nonzero(Q)[2])),int(np.max(np.nonzero(Q)[2])+1))
+            X = np.linspace(0, int(np.max(argmaxs)+9), int(np.max(argmaxs)+10))
             ax.fill_between(X, 
-                            np.max(Q[i], axis = 0)[:int(np.max(np.nonzero(Q)[2])+1)], 
-                            np.min(Q[i], axis = 0)[:int(np.max(np.nonzero(Q)[2])+1)], 
+                            np.max(Q[i], axis = 0)[:int(np.max(argmaxs)+10)], 
+                            np.min(Q[i], axis = 0)[:int(np.max(argmaxs)+10)], 
                             alpha = 0.2)
-        fig.suptitle('%s'%self.text)
+        
         ax.set_title('Size of the Active Nodes', fontsize = 25)
         ax.set_xlabel('Time', fontsize = 20)
         ax.set_ylabel('Number of Nodes', fontsize = 20)
         ax.legend(fontsize = 'x-large')
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:

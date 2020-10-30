@@ -170,11 +170,11 @@
 <dt id="Complex_Contagions.geometric_network">
 <em class="property">class </em><code class="sig-prename descclassname">Complex_Contagions.</code><code class="sig-name descname">geometric_network</code><span class="sig-paren">(</span><em class="sig-param">network_type</em>, <em class="sig-param">size</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Geometric Network Object to run complex contagions on.</p>
+<p>Geometric Network object to run complex contagions on.</p>
 <dl class="attribute">
 <dt id="Complex_Contagions.geometric_network.N">
 <code class="sig-name descname">N</code><a class="headerlink" href="#Complex_Contagions.geometric_network.N" title="Permalink to this definition">¶</a></dt>
-<dd><p>size, number of nodes in the network.</p>
+<dd><p>Size, number of nodes in the network.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>int</p>
@@ -185,7 +185,7 @@
 <dl class="attribute">
 <dt id="Complex_Contagions.geometric_network.M">
 <code class="sig-name descname">M</code><a class="headerlink" href="#Complex_Contagions.geometric_network.M" title="Permalink to this definition">¶</a></dt>
-<dd><p>total number of edges in the network.</p>
+<dd><p>Total number of edges in the network.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>int</p>
@@ -196,7 +196,8 @@
 <dl class="attribute">
 <dt id="Complex_Contagions.geometric_network.graph">
 <code class="sig-name descname">graph</code><a class="headerlink" href="#Complex_Contagions.geometric_network.graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Networkx graph corresponding to the Geometric object. Having this attribute, you can use all the networkx library.</p>
+<dd><p>Networkx graph corresponding to the geometric_network object. You can use all the
+networkx library with this attribute.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>a Networkx object</p>
@@ -240,33 +241,33 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>network_type</strong> (<em>str</em>) – type of the network to be created. It can be ‘2D_lattice’ or ‘ring_lattice’</p></li>
+<li><p><strong>network_type</strong> (<em>str</em>) – Type of the network to be created. It can be <code class="docutils literal notranslate"><span class="pre">2D_lattice</span></code> or ‘ring_lattice``.</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Size of the network to be initated. If 2D_lattice, there will be size**2 many total nodes.</p></li>
 <li><p><strong>**kwargs</strong> – <dl class="simple">
-<dt>tiling: int</dt><dd><p>should be provided if the network type is 2D_lattice.
-tiling of the 2d lattice. It can be 3,4,6 for now. this is the number of neighbors to be
+<dt>tiling: int</dt><dd><p>Should be provided if the network type is <code class="docutils literal notranslate"><span class="pre">2D_lattice</span></code>.
+Tiling of the 2d lattice. It can be 3,4,6 for now. This is the number of neighbors to be
 connected.</p>
 </dd>
 </dl>
 </p></li>
 <li><p><strong>**kwargs</strong> – <dl class="simple">
-<dt>periodic: bool</dt><dd><p>should be provided if the network type is 2D_lattice. if True, edges of the network
-are going to be glued together.</p>
+<dt>periodic: bool</dt><dd><p>Should be provided if the network type is <code class="docutils literal notranslate"><span class="pre">2D_lattice</span></code>. if True, edges of the planar lattice
+are going to be glued together. See <code class="docutils literal notranslate"><span class="pre">networkx.grid_2d_graph</span></code>.</p>
 </dd>
 </dl>
 </p></li>
 <li><p><strong>**kwargs</strong> – <dl class="simple">
-<dt>banded: bool</dt><dd><p>should be provided if the network type is ring_lattice. If True, the closest band_length many
+<dt>banded: bool</dt><dd><p>Should be provided if the network type is <code class="docutils literal notranslate"><span class="pre">ring_lattice</span></code>. If True, the closest <code class="docutils literal notranslate"><span class="pre">band_length</span></code> many
 neigbors from right and left is going to be connected to every node, creating a banding.</p>
 </dd>
 </dl>
 </p></li>
 <li><p><strong>**kwargs</strong> – <dl class="simple">
-<dt>band_length: int</dt><dd><p>should be provided if the network type is ring_lattice. geometric degre divided by 2.
+<dt>band_length: int</dt><dd><p>Sould be provided if the network type is <code class="docutils literal notranslate"><span class="pre">ring_lattice</span></code>. Geometric degree divided by 2.
 Note that geometric degree must be an even number.</p>
 </dd>
 </dl>
 </p></li>
-<li><p><strong>size</strong> (<em>int</em>) – size of the network to be initated. If 2D_lattice, there will be size**2 many total nodes.</p></li>
 </ul>
 </dd>
 </dl>
@@ -274,8 +275,8 @@ Note that geometric degree must be an even number.</p>
 <dt id="Complex_Contagions.geometric_network.add_noise_to_geometric">
 <code class="sig-name descname">add_noise_to_geometric</code><span class="sig-paren">(</span><em class="sig-param">noise_type</em>, <em class="sig-param">d2</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.add_noise_to_geometric" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method adds non-geometric edges to the network that are long range. Depending on the ‘noise_type’
-the way we add these long range edges differ. If noise_type = ER_like, then there will be d2 many
-non geometric edges ON AVARAGE for every node. When the noise_type = k_regular, every node will
+the way we add these long range edges differ. If noise_type = <code class="docutils literal notranslate"><span class="pre">ER_like</span></code>, then there will be d2 many
+non geometric edges ON AVERAGE for every node. When the noise_type = <code class="docutils literal notranslate"><span class="pre">k_regular</span></code>, every node will
 have exactly d2 many long range edges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -339,7 +340,7 @@ First normalizes the distances before the computation.</p>
 <dl class="method">
 <dt id="Complex_Contagions.geometric_network.display">
 <code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">n_size=15</em>, <em class="sig-param">labels=True</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.display" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to pass parameters into nx.draw().</p>
+<dd><p>Method to pass parameters into <code class="docutils literal notranslate"><span class="pre">nx.draw()</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -374,8 +375,8 @@ and min values of the spread starting from different nodes.</p>
 <dl class="method">
 <dt id="Complex_Contagions.geometric_network.excitation">
 <code class="sig-name descname">excitation</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">C</em>, <em class="sig-param">seed</em>, <em class="sig-param">threshold</em>, <em class="sig-param">refractory=False</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">spy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.excitation" title="Permalink to this definition">¶</a></dt>
-<dd><p>THE CORE FUNCTION OF THE NEURONAL CONTAGION MODEL.
-In this model, a neuron fires if the ratio of it’s excited neighbors to the total number of neighbors
+<dd><p>THE CORE FUNCTION OF THE NEURONAL CONTAGION MODEL.</p>
+<p>In this model, a neuron fires if the ratio of it’s excited neighbors to the total number of neighbors
 is greater than the threshold. Let’s call the difference between this ratio and the threshold = F
 so that if F is positive, neuron is going to fire and it doesn’t fire when it’s negative. We add some
 stocasticity to the model by defining the sigmoid function so that the probability that the
@@ -409,9 +410,11 @@ given time(at t = 0, all neighbors of the seed is active)</p></li>
 <dl class="method">
 <dt id="Complex_Contagions.geometric_network.make_distance_matrix">
 <code class="sig-name descname">make_distance_matrix</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">C</em>, <em class="sig-param">threshold</em>, <em class="sig-param">Trials</em>, <em class="sig-param">refractory</em>, <em class="sig-param">spy_distance=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Complex_Contagions.geometric_network.make_distance_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>A shortcut to run all of the above functions in one function. This creates a distance matrix by running the
-contagion on starting from every node and encoding the first activation times of each node. The (i,j) entry
-corresponds to the average time(over the trials) that a contagion reaches node j starting from node i.</p>
+<dd><p>A shortcut to run all of the above functions in one function. This creates an activation matrix by running
+the contagion on starting from every node and encoding the first activation times of each node. Then,
+finding the euclidean distances between the columns of this matrix, creating a distance matrix so that
+the (i,j) entry corresponds to the average time(over the trials) that a contagion reaches node j starting
+from node i.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -441,7 +444,7 @@ right after it fires. if FALSE, neuron stays active once its activated.</p></li>
 <dd><p>Helper to compute the specific topological features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>persistences</strong> (<em>list</em>) – a list of birth and death times of the topological features or the output of the compute_persistence.</p>
+<dd class="field-odd"><p><strong>persistences</strong> (<em>list</em>) – A list of birth and death times of the topological features or the output of the compute_persistence.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
@@ -465,8 +468,7 @@ right after it fires. if FALSE, neuron stays active once its activated.</p></li>
 <li><p><strong>T</strong> (<em>int</em>) – Number of time steps contagions is going to be iterated.</p></li>
 <li><p><strong>C</strong> (<em>int</em>) – A positive constant for the sigmoid function, if C is too large(&gt;100),
 jump from 0 to 1 is gonna be too quick i.e. model is going to be deterministic.</p></li>
-<li><p><strong>seed</strong> (<em>int</em>) – node id to start the contagion, in the first time step, we infect
-the neighbors of the seed with probablity 1 then enter the while loop below</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – node id to start the contagion, in the first time step.</p></li>
 <li><p><strong>threshold</strong> (<em>float</em>) – threshold to compare for a neuron’s neighbor input. threshold must be in (0,1).</p></li>
 <li><p><strong>refractory</strong> (<em>bool</em>) – if TRUE, sets the refractory period of 1 time step i.e. neuron cannot fire for 1 time step
 right after it fires. if FALSE, neuron stays active once its activated.</p></li>
@@ -492,7 +494,7 @@ given time(at t = 0, all neighbors of the seed is active) for each trial.</p></l
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>first_activation_times</strong> (<em>array of size n x Trials</em>) – First output of the run_excitation showing the first time step that the contagion
-reaches to a given node</p>
+reaches to a given node.</p>
 </dd>
 </dl>
 </dd></dl>
