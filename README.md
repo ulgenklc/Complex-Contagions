@@ -4,7 +4,7 @@ Complex Contagions is a python library where one can run a simple threshold mode
 
 [Documentation](https://complex-contagions.readthedocs.io/en/latest/index.html) is available!!
 
-![alt text](https://github.com/ulgenklc/Complex-Contagions/blob/master/Excitations_python/figures/fig1.pdf?raw=true)
+![alt text](https://github.com/ulgenklc/Complex-Contagions/blob/master/Excitations_python/figures/figg.png)
 
 The spatial distance of nodes are also reflected from the path distance between nodes in geometric networks, the quantification of such patterns via TDA correspond
 Running neuronal contagions on custom made networks to asses the dynamics of complex systems.
