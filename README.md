@@ -7,9 +7,6 @@ The complexity of the system may be increased by varying the step function
 
 which simply corresponds to modifying the hill function and introducing stochasticity into the system. Also, by adding k-regular edge noise is another way of introducing stochasticty which is handled by the API (see the documentation) since the spatial distance of nodes are also reflected from the path distance between nodes in geometric networks.
 
-Complex Contagions are deprecated by [Neuronal Cascades](https://github.com/ulgenklc/Neuronal_Cascades)
-
-https://github.com/ulgenklc/Neuronal_Cascades
-
+Complex Contagions are deprecated by [Neuronal Cascades](https://github.com/ulgenklc/Neuronal_Cascades).
 
 
